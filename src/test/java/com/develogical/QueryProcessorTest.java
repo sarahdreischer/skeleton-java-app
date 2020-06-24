@@ -17,7 +17,7 @@ public class QueryProcessorTest {
 
   @Test
   public void returnsQueryId() {
-    assertThat(queryProcessor.process("hello:what is your name"), containsString("hello"));
+    assertThat(queryProcessor.process("what is your name"), containsString("Sarah D"));
   }
 
   @Test
