@@ -18,6 +18,11 @@ public class QueryProcessor {
             int max = Arrays.stream(numbersAsInt).max().getAsInt();
             return String.valueOf(max).trim();
         }
+        if (query.toLowerCase().contains("plus")) {
+            String firstNumber = query.substring(query.lastIndexOf("plus") + 1).replaceAll("[^\\d.]", "");;
+            String lastNumber = query.split("plus")[0].replaceAll("[^\\d.]", "");
+            return String.valueOf(Integer.parseInt(firstNumber) + Integer.parseInt(lastNumber));
+        }
         return "";
     }
 

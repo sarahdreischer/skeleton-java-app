@@ -26,6 +26,12 @@ public class QueryProcessorTest {
   }
 
   @Test
+  public void canReturnAddition() {
+    assertThat(queryProcessor.process("what is 20 plus 2015"), containsString("2035"));
+  }
+
+
+  @Test
   public void isNotCaseSensitive() throws Exception {
     assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
   }
