@@ -19,8 +19,9 @@ public class QueryProcessor {
             return String.valueOf(max).trim();
         }
         if (query.toLowerCase().contains("plus")) {
-            String firstNumber = query.substring(query.lastIndexOf("plus") + 1).replaceAll("[^\\d.]", "");;
-            String lastNumber = query.split("plus")[0].replaceAll("[^\\d.]", "");
+            String firstNumber = query.substring(query.lastIndexOf("plus") + 1).replaceAll("[^\\d.]", "");
+            String lastNumberHalf = query.split("plus")[0];
+            String lastNumber = lastNumberHalf.substring(query.lastIndexOf("is") + 1).replaceAll("[^\\d.]", "");
             return String.valueOf(Integer.parseInt(firstNumber) + Integer.parseInt(lastNumber));
         }
         return "";
