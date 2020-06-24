@@ -21,6 +21,11 @@ public class QueryProcessorTest {
   }
 
   @Test
+  public void returnsGreatestNumber() {
+    assertThat(queryProcessor.process("which of the following numbers is the largest: 2036, 20100, 20585"), containsString("20585"));
+  }
+
+  @Test
   public void isNotCaseSensitive() throws Exception {
     assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
   }
