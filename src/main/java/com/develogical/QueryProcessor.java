@@ -9,22 +9,23 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("romeo and juliet")) {
             return "William Shakespeare";
         }
-        if (query.toLowerCase().contains("name")) {
+        else if (query.toLowerCase().contains("name")) {
             return "Sarah D";
         }
-        if (query.toLowerCase().contains("number")) {
+        else if (query.toLowerCase().contains("largest")) {
             String numbers = query.substring(query.lastIndexOf(":") + 1);
             int[] numbersAsInt = parseLineToIntArray(numbers);
             int max = Arrays.stream(numbersAsInt).max().getAsInt();
             return String.valueOf(max).trim();
         }
-        if (query.toLowerCase().contains("plus")) {
+        else if (query.toLowerCase().contains("plus")) {
             String firstNumber = query.substring(query.lastIndexOf("plus") + 1).replaceAll("[^\\d.]", "");
             String lastNumberHalf = query.split("plus")[0];
             String lastNumber = lastNumberHalf.substring(query.lastIndexOf("is") + 1).replaceAll("[^\\d.]", "");
             return String.valueOf(Integer.parseInt(firstNumber) + Integer.parseInt(lastNumber));
+        } else {
+            return "";
         }
-        return "";
     }
 
     private int[] toIntArray(String[] arr) {
