@@ -13,7 +13,7 @@ public class QueryProcessor {
             return "Sarah D";
         }
         if (query.toLowerCase().contains("number")) {
-            String numbers = query.split("\\:")[1].trim();
+            String numbers = query.substring(query.lastIndexOf(":") + 1);
             int[] numbersAsInt = parseLineToIntArray(numbers);
             int max = Arrays.stream(numbersAsInt).max().getAsInt();
             return String.valueOf(max).trim();
