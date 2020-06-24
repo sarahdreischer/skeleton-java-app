@@ -7,7 +7,7 @@ public class QueryProcessor {
             return "William Shakespeare";
         }
         if (query.toLowerCase().contains("name")) {
-            return query.split("\\:")[0].substring(1);
+            return query.split("\\:")[0];
         }
         return "";
     }
